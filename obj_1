@@ -1,0 +1,71 @@
+//objektinis programavimas 1
+import java.util.*;
+
+class Product
+{
+	double Price;
+	String Name;
+	String Type;
+	
+	
+}
+
+class Computer extends Product
+{
+	int cpuCores;
+	int hddSize;
+	boolean Desktop;
+	
+	public void tellInfo()
+	{
+		System.out.printIn("CPU cores: " + cpuCores);
+		System.out.printIn("Price: " + Price);
+		System.out.printIn("Desktop? " + Desktop);
+	}
+}
+
+public class Main
+{
+	public static void main(String[] args)
+	{
+		Computer[] computers = new Computer[10];
+		
+		for(int = 0; i < 10; i++)
+		{
+			//naujas objektas
+			Computer c = new Computer();
+			
+			c.Price = 10 * (i+1);
+			c.cpuCores = i+1;
+			c.Desktop = (i%2 == 0) ? false : true;
+			
+			computers[i] = c;
+		}
+		
+		//filter by type and price lower than 30
+		//
+		//sarasas
+		List<Computer> compsFiltered = new ArrayList<>();
+		//
+		//for(int = 0; i < 10; i++)
+		//{
+			//Computer c = computers[i];
+		//}
+		
+		for(Computer c : computers)
+		{
+			if(c.Price < 100 && c.Desktop)
+			{
+				compsFiltered.add(c);
+			}
+		}
+		
+		for(Computer c : compsFiltered)
+		{
+			System.out.printIn("_________");
+			c.tellInfo();
+			System.out.printIn("_________");
+		}
+		
+	}
+}
